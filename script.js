@@ -11,32 +11,37 @@ const play = (playerSelection, computerSelection) => {
     playerSelection.toLowerCase();
     let playerS = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
     if (playerS === computerSelection){
-        console.log('its a tie!')
+        return('its a tie!')
     }
-    else if(playerS == 'Rock'){
-        if(computerPlay == 'Paper'){
-            console.log('You Lose! Paper beats Rock')
+
+    else if(playerS === 'Rock') {
+        if(computerSelection === 'Paper'){
+            return('You Lose! Paper beats Rock')
         }
         else{
-            console.log('You Won! Rock beats Scissors')
+            return('You Won! Rock beats Scissors')
         }
     }
 
-    else if(playerS == 'Scissors'){
-        if(computerPlay == 'Rock'){
-            console.log('You Lose! Rock beats Scissors')
+    else if(playerS === 'Scissors'){
+        if(computerSelection === 'Rock'){
+            return('You Lose! Rock beats Scissors')
         }
         else{
-            console.log('You Won! Scissors beats Paper')
+            return('You Won! Scissors beats Paper')
         }
     }
 
-    else if(playerS == 'Paper'){
-        if(computerPlay == 'Scissors'){
-            console.log('You Lose, Scissors beats Paper')
+    else if (playerS === 'Paper'){
+        if(computerSelection === 'Scissors'){
+            return('You Lose, Scissors beats Paper')
         }
         else{
-            console.log('You Won! Paper beats Rock')
+            return('You Won! Paper beats Rock')
         }
     }
 }
+
+const playerSelection = 'rock';
+const computerSelection = computerPlay();
+console.log(play(playerSelection, computerSelection));
