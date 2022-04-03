@@ -6,7 +6,7 @@ const computerPlay = () => {
     return choice;
 }
 
-const play = (playerSelection, computerSelection) => {
+const playRound = (playerSelection, computerSelection) => {
 
     playerSelection.toLowerCase();
     let playerS = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
@@ -42,6 +42,38 @@ const play = (playerSelection, computerSelection) => {
     }
 }
 
-const playerSelection = 'rock';
-const computerSelection = computerPlay();
-console.log(play(playerSelection, computerSelection));
+// const playerSelection = 'rock';
+// const computerSelection = computerPlay();
+// console.log(play(playerSelection, computerSelection));
+
+const game =() =>{
+
+    let userScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++){
+        playerSelection = window.prompt('please input your selection');
+        computerSelection = computerPlay();
+        result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (result.includes('Won')){
+            userScore += 1;
+        }
+        else if (result.includes('Lose')){
+            computerScore += 1;
+        }
+    }
+
+    if (userScore > computerScore){
+        console.log('Congratulations, You won the game!');
+    }
+    else if(userScore < computerScore){
+        console.log('Whoops, You lost to the computer!');
+    }
+    else{
+        console.log('The game is even');
+    }
+
+}
+
+
