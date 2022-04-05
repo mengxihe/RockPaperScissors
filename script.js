@@ -75,3 +75,4 @@ const game =() =>{
 }
 
 
+//call game() in the console to play game
