@@ -42,9 +42,7 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-// const playerSelection = 'rock';
-// const computerSelection = computerPlay();
-// console.log(play(playerSelection, computerSelection));
+
 
 const game =() =>{
 
@@ -75,5 +73,3 @@ const game =() =>{
     }
 
 }
-
-//branch testing
