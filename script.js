@@ -73,3 +73,15 @@ const game =() =>{
     }
 
 }
+
+function play(e){
+    let playerSelection = e.target.className;
+    computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection);
+    const container = document.querySelector('#container');
+    container.textContent = result;
+}
+
+const btn = document.querySelectorAll('#btn');
+btn.forEach(btn => btn.addEventListener('click', play));
+
