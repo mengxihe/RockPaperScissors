@@ -44,22 +44,32 @@ const playRound = (playerSelection, computerSelection) => {
 
 
 
-const game =() =>{
+const game =(e) =>{
 
     let userScore = 0;
     let computerScore = 0;
 
-    for (let i = 0; i < 5; i++){
-        playerSelection = window.prompt('please input your selection');
-        computerSelection = computerPlay();
-        result = playRound(playerSelection, computerSelection);
-        console.log(result);
-        if (result.includes('Won')){
-            userScore += 1;
-        }
-        else if (result.includes('Lose')){
-            computerScore += 1;
-        }
+    // for (let i = 0; i < 5; i++){
+    //     playerSelection = e.target.className;
+    //     computerSelection = computerPlay();
+    //     result = playRound(playerSelection, computerSelection);
+    //     console.log(result);
+    //     if (result.includes('Won')){
+    //         userScore += 1;
+    //     }
+    //     else if (result.includes('Lose')){
+    //         computerScore += 1;
+    //     }
+    // }
+    playerSelection = e.target.className;
+    computerSelection = computerPlay();
+    result = playRound(playerSelection, computerSelection);
+    console.log(result);
+    if (result.includes('Won')){
+        userScore += 1;
+    }
+    else if (result.includes('Lose')){
+        computerScore += 1;
     }
 
     if (userScore > computerScore){
@@ -75,12 +85,30 @@ const game =() =>{
 }
 
 function play(e){
+    let userScore = 0;
+    let computerScore = 0;
     let playerSelection = e.target.className;
-    computerSelection = computerPlay();
+    let computerSelection = computerPlay();
     let result = playRound(playerSelection, computerSelection);
+    
     const container = document.querySelector('#container');
     container.textContent = result;
+    
+    if (result.includes('Won')){
+        userScore += 1;
+    }
+    else if (result.includes('Lose')){
+        computerScore += 1;
+    }
+
+    const user = document.querySelector('#userScore');
+    user.textContent = `userScore: ${userScore}`;
+    const computer = document.querySelector('#computerScore');
+    computer.textContent = `computerScore: ${computerScore}`;
+    // game(e);
 }
+
+
 
 const btn = document.querySelectorAll('#btn');
 btn.forEach(btn => btn.addEventListener('click', play));
