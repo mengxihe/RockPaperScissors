@@ -42,39 +42,9 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-
-
-// const game =() =>{
-
-//     let userScore = 0;
-//     let computerScore = 0;
-
-//     for (let i = 0; i < 5; i++){
-//         playerSelection = window.prompt('please input your selection');
-//         computerSelection = computerPlay();
-//         result = playRound(playerSelection, computerSelection);
-//         console.log(result);
-//         if (result.includes('Won')){
-//             userScore += 1;
-//         }
-//         else if (result.includes('Lose')){
-//             computerScore += 1;
-//         }
-//     }
-
-//     if (userScore > computerScore){
-//         console.log('Congratulations, You won the game!');
-//     }
-//     else if(userScore < computerScore){
-//         console.log('Whoops, You lost to the computer!');
-//     }
-//     else{
-//         console.log('The game is even');
-//     }
-
-// }
-
-
+function displayMenu(menu){
+    menu.style.visibility = "visible";
+}
 
 function play(e){
     // let userScore = 0;
@@ -97,6 +67,7 @@ function play(e){
             if(userScore === limit){
                 gameOver =true;
                 winner.textContent = 'You are the winner of the game!'
+                displayMenu(gameDone);
             }
         }
 
@@ -106,22 +77,20 @@ function play(e){
             if(computerScore === limit){
                 gameOver = true;
                 winner.textContent = 'Whoops, you lost to the computer!'
+                displayMenu(gameDone);
             }
         }
     }
     else{
         container.textContent = 'Game Over!';
-        
-        // clearInterval(interval);
-        
     }
-    // game(e);
 }
 
 let userScore = 0;
 let computerScore = 0;
 let limit = 5;
 let gameOver = false;
+let gameDone = document.getElementById("game-over");
 const user = document.querySelector('#userScore');
 const computer = document.querySelector('#computerScore');
 user.textContent = `userScore: ${userScore}`;

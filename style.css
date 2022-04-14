@@ -3,9 +3,9 @@ body {
     background-color:#1bafdb;
 }
 
-#gameOver {
+#game-over {
 position: absolute;
-/* visibility: hidden; */
+visibility: hidden;
 font-family:Arial, Helvetica, sans-serif;
 color: #ffffff;
 padding: 20px;
