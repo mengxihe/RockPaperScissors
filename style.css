@@ -15,6 +15,10 @@ body {
     justify-content: center;
 }
 
+#btn:hover {
+ transform: scale(1.1);
+}
+
 #game-over {
 
 visibility: hidden;
