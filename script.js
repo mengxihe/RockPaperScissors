@@ -46,6 +46,10 @@ function displayMenu(menu){
     menu.style.visibility = "visible";
 }
 
+function hideMenu(menu){
+    menu.style.visibility = "hidden"
+}
+
 function play(e){
     // let userScore = 0;
     // let computerScore = 0;
@@ -68,6 +72,9 @@ function play(e){
                 gameOver =true;
                 winner.textContent = 'You are the winner of the game!'
                 displayMenu(gameDone);
+                overTitle.textContent = 'Game Over, You Won!'
+                restart.textContent = 'restart';
+                hideMenu(game);
             }
         }
 
@@ -78,12 +85,13 @@ function play(e){
                 gameOver = true;
                 winner.textContent = 'Whoops, you lost to the computer!'
                 displayMenu(gameDone);
+                overTitle.textContent = 'Game Over, You lost'
+                restart.textContent = 'restart';
+                hideMenu(game);
             }
         }
     }
-    else{
-        container.textContent = 'Game Over!';
-    }
+    
 }
 
 let userScore = 0;
@@ -91,6 +99,9 @@ let computerScore = 0;
 let limit = 5;
 let gameOver = false;
 let gameDone = document.getElementById("game-over");
+let game = document.getElementById("game");
+let restart = document.getElementById("restartButton");
+let overTitle = document.getElementById("overTitle");
 const user = document.querySelector('#userScore');
 const computer = document.querySelector('#computerScore');
 user.textContent = `userScore: ${userScore}`;
